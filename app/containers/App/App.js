@@ -10,28 +10,24 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage/Loadable';
+import PageOne from 'containers/PageOne/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from 'components/Header';
+import MenuLeft from 'components/MenuLeft';
 import Footer from 'components/Footer';
 import './style.scss';
 
 const App = () => (
   <div className="app-wrapper">
-    <Helmet
-      titleTemplate="%s - React.js Boilerplate"
-      defaultTitle="React.js Boilerplate"
-    >
-      <meta name="description" content="A React.js Boilerplate application" />
-    </Helmet>
-    <Header />
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/features" component={FeaturePage} />
-      <Route path="" component={NotFoundPage} />
-    </Switch>
-    <Footer />
+    <MenuLeft />
+    <div className="content">
+      <Switch>
+        <Route exact path="/" component={PageOne} />
+        <Route path="/features" component={FeaturePage} />
+        <Route path="" component={NotFoundPage} />
+      </Switch>
+      <Footer />
+    </div>
   </div>
 );
 
